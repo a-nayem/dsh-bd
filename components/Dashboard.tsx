@@ -131,7 +131,7 @@ export default function Dashboard() {
         <header className="top">
           <div className="brand">Ayanokouji&apos;s <span>// Empire</span></div>
           <div className="header-actions">
-            <button className="pill-btn" onClick={() => setBgOpen((v) => !v)}>🖼 Background</button>
+            <button className="pill-btn" onClick={() => setBgOpen((v) => !v)}>Background</button>
             <button className={`pill-btn${editMode ? " active" : ""}`} onClick={() => setEditMode((v) => !v)}>
               {editMode ? "✓ Done" : "⠿ Edit Layout"}
             </button>
