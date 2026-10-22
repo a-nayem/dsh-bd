@@ -21,9 +21,11 @@
   --font-display: 'Syne', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+/* html owns the page colour. body must stay transparent: a painted body sits above the
+   negative z-index wallpaper layers (video, image, gradient) and hides them. */
+html { background: #15427f; }
 html, body {
   min-height: 100vh;
-  background: #15427f;
   color: var(--text);
   font-family: var(--font-mono);
   -webkit-font-smoothing: antialiased;
