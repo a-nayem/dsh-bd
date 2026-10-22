@@ -17,7 +17,8 @@ import BackgroundLayer, { type BgSettings } from "@/components/BackgroundLayer";
 import BackgroundSettings from "@/components/BackgroundSettings";
 
 const LAYOUT_KEY = "empire-dashboard-layout";
-const BG_KEY = "empire-dashboard-bg-settings";
+// v2: the default wallpaper is now the edgewalker video, so old saved "none" settings are not carried over
+const BG_KEY = "empire-dashboard-bg-settings-v2";
 
 const PANEL_META: Record<string, { label: string; wide?: boolean }> = {
   hero: { label: "Night Drive" },
@@ -39,7 +40,7 @@ const DEFAULT_ORDER = [
   "quicklinks",
 ];
 
-const DEFAULT_BG: BgSettings = { mode: "none", url: null, videoPath: null, overlay: 0.35, blur: 0 };
+const DEFAULT_BG: BgSettings = { mode: "video", url: null, videoPath: "/backgrounds/edgewalker.mp4", overlay: 0.3, blur: 0 };
 
 function renderPanel(id: string): React.ReactNode {
   switch (id) {
