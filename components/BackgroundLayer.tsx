@@ -25,8 +25,9 @@ export default function BackgroundLayer({ settings }: { settings: BgSettings }) 
         <div className="bg-image-layer" style={{ backgroundImage: `url(${settings.url})` }} />
       )}
 
-      {settings.mode === "none" && <div className="bg-image-layer" />}
+      {settings.mode === "none" && <div className="bg-image-layer bg-gradient" />}
 
+      {settings.mode !== "none" && (
       <div
         className="bg-overlay-layer"
         style={{
@@ -35,6 +36,7 @@ export default function BackgroundLayer({ settings }: { settings: BgSettings }) 
           WebkitBackdropFilter: settings.blur ? `blur(${settings.blur}px)` : undefined,
         }}
       />
+      )}
     </>
   );
 }
