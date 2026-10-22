@@ -74,6 +74,12 @@ export default function BackgroundSettings({ open, onClose, settings, onChange, 
           🎬 Video (from repo)
         </button>
         <button
+          className={`settings-tab${settings.mode === "none" ? " active" : ""}`}
+          onClick={() => onChange({ ...settings, mode: "none" })}
+        >
+          Gradient
+        </button>
+        <button
           className={`settings-tab${settings.mode === "image" ? " active" : ""}`}
           onClick={() => onChange({ ...settings, mode: "image" })}
         >
