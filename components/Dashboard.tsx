@@ -64,6 +64,7 @@ export default function Dashboard() {
   const [bg, setBg] = useState<BgSettings>(DEFAULT_BG);
   const [bgOpen, setBgOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => {
     const rawOrder = localStorage.getItem(LAYOUT_KEY);
@@ -88,6 +89,11 @@ export default function Dashboard() {
       }
     }
     setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setSettled(true), 1600);
+    return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
@@ -163,7 +169,7 @@ export default function Dashboard() {
           </div>
         )}
 
-        <div className="panel-flow">
+        <div className={`panel-flow${settled ? " settled" : ""}`}>
           {order.map((id) => (
             <DraggablePanel
               key={id}
